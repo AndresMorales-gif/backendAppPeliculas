@@ -5,10 +5,20 @@
  */
 package com.and.AppPeliculas.controller;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 /**
  *
  * @author Andres Morales
  */
+@RestController
 public class HomeController {
+    
+    @GetMapping("/")
+    public String home(){
+        return "Nuesro home";
+    }
+    
     
 }

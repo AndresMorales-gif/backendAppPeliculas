@@ -5,6 +5,7 @@
  */
 package com.and.AppPeliculas.entity;
 
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +14,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 /**
@@ -43,15 +46,27 @@ public class Movie {
     @OneToMany(mappedBy="movie")
     private List<Qualification> qualifications;
     
+    @Temporal(TemporalType.DATE)
+    private Date launching;
+    
     public Movie() {
     }    
 
-    public Movie(String title, String description, String kind, String image, Integer serieOrMovie) {
+    public Movie(String title, String description, String kind, String image, Integer serieOrMovie, Date launching) {
         this.title = title;
         this.description = description;
         this.kind = kind;
         this.image = image;
         this.serieOrMovie = serieOrMovie;
+        this.launching = launching;
+    }
+
+    public Date getLaunching() {
+        return launching;
+    }
+
+    public void setLaunching(Date launching) {
+        this.launching = launching;
     }
 
     public Integer getIdMovie() {

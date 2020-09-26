@@ -7,10 +7,13 @@ package com.and.AppPeliculas.controller;
 
 import com.and.AppPeliculas.entity.Movie;
 import com.and.AppPeliculas.service.IMovieService;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,27 +23,26 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping("/pelicula")
+@RequestMapping("/movie")
 public class MovieController {
     
     @Autowired
     private IMovieService movieService;
     
-    @GetMapping("/save")
-    public Movie save() {
-        Movie movie = new Movie("La bella y la bestia", "Un hombre feo que quiere una princesa", "drama", "/hola.jpg", 0);
+    @PostMapping("/save")
+    public Movie save(@RequestBody Movie movie) {
+        System.out.println(movie);
         movieService.save(movie);
         return movie;
     }
-    /*
+    
     @GetMapping("/update")
-    public Movie update() {
-        Optional<Movie> movie = movieService.findById(2);
+    public Movie update(@RequestBody Movie movie) {
         movieService.update(movie);
         return movie;
-    }*/
+    }
     
-    @GetMapping("/todas")
+    @GetMapping("/all")
     public List<Movie> allMovies() {
         List<Movie> movies = movieService.findAll();
         return movies;
