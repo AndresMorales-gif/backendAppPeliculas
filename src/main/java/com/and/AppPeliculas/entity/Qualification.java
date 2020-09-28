@@ -5,6 +5,7 @@
  */
 package com.and.AppPeliculas.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,10 +29,12 @@ public class Qualification {
     @Column(name = "id_qualification")
     private Integer idQualification;
     
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="id_movie", insertable=false, updatable=false)
     private Movie movie;
     
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="id_user", insertable=false, updatable=false)
     private User user;

@@ -6,12 +6,13 @@
 package com.and.AppPeliculas.dao;
 
 import com.and.AppPeliculas.entity.User;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+
 
 /**
  *
  * @author Andres Morales
  */
-public interface IUserDao extends CrudRepository<User, Integer> {
+public interface IUserDao extends JpaRepository<User, Integer> {
     
 }

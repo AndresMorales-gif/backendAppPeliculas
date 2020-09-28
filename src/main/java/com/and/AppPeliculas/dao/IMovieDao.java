@@ -6,12 +6,13 @@
 package com.and.AppPeliculas.dao;
 
 import com.and.AppPeliculas.entity.Movie;
-import org.springframework.data.repository.CrudRepository;
+import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author Andres Morales
  */
-public interface IMovieDao extends CrudRepository<Movie, Integer> {
-    
+public interface IMovieDao extends JpaRepository<Movie, Integer> {
+    public List<Movie> findAllByOrderByLaunchingAsc();
 }

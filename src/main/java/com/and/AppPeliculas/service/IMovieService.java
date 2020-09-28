@@ -24,6 +24,8 @@ public interface IMovieService {
     public void delete(Integer idMovie);
     
     public List<Movie> findAll();
+   
+    public List<Movie> findAllOrderByLaunchingAsc();
     
     public Optional<Movie> findById(Integer idMovie);
     

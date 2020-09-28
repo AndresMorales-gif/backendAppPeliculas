@@ -5,6 +5,7 @@
  */
 package com.and.AppPeliculas.service;
 
+import com.and.AppPeliculas.entity.Movie;
 import com.and.AppPeliculas.entity.Qualification;
 import java.util.List;
 import java.util.Optional;
@@ -25,4 +26,5 @@ public interface IQualificationService {
     
     public Optional<Qualification> findById(Integer idQualification);
     
+    public List<Integer> topQualifications(); 
 }

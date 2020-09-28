@@ -6,6 +6,7 @@
 package com.and.AppPeliculas.service;
 
 import com.and.AppPeliculas.dao.IQualificationDao;
+import com.and.AppPeliculas.entity.Movie;
 import com.and.AppPeliculas.entity.Qualification;
 import java.util.List;
 import java.util.Optional;
@@ -64,6 +65,15 @@ public class QualificationServiceImpl implements IQualificationService {
             return qualificationDao.findById(idQualification);
         } catch (Exception e) {
             throw new RuntimeException("No se logro recuperar el dato de la calificacion hecha.");
+        }
+    }
+
+    @Override
+    public List<Integer> topQualifications() {
+        try {
+            return (List)qualificationDao.topQualifications();
+        } catch (Exception e) {
+            throw new RuntimeException("No se logro recuperar los datos de todas las calificaciones hechas.");
         }
     }
     

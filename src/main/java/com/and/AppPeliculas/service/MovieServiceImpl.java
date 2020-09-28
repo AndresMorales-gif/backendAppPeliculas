@@ -66,5 +66,14 @@ public class MovieServiceImpl implements IMovieService {
             throw new RuntimeException("No se logro encontrar la pelicula solicitada.");
         }
     }
+
+    @Override
+    public List<Movie> findAllOrderByLaunchingAsc() {
+        try {
+            return (List)movieDao.findAllByOrderByLaunchingAsc();
+        } catch (Exception e) {
+            throw new RuntimeException("No se logro recuperar los datos de todas las peliculas.");
+        }
+    }
     
 }

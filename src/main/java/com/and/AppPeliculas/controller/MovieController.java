@@ -9,10 +9,10 @@ import com.and.AppPeliculas.entity.Movie;
 import com.and.AppPeliculas.service.IMovieService;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,7 +36,7 @@ public class MovieController {
         return movie;
     }
     
-    @GetMapping("/update")
+    @PutMapping("/update")
     public Movie update(@RequestBody Movie movie) {
         movieService.update(movie);
         return movie;
